@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="path/to/your/style.css">
 
+
 <!--Icons-->
 <script src="js/lumino.glyphs.js"></script>
 	<script src="js/jquery.js"></script>
