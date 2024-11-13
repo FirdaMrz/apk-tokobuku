@@ -78,7 +78,7 @@ $userInfo = $auth->getUserInfo($username);
                     </table>
                 </div>
                 <div class="profile-image">
-                  <img src="../../assets/img/profile.jpeg" alt="Profile Picture">
+                  <img src="../../assets/img/profile.jpg" alt="Profile Picture">
                 </div>
 
             </div>

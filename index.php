@@ -43,9 +43,9 @@ session_start();
 				</button>
 				<a class="navbar-brand" href="#"><span>TOKO</span>BUKU</a>
 				<ul class="user-menu">
-					<li class="dropdown pull-right"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/profile.jpeg" alt="Profile" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">User <span class="caret"></span></a>
+					<li class="dropdown pull-right"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/profile.jpg" alt="Profile" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-						<li><a href="view/profile/profile.php"><img src="assets/img/profile.jpeg" alt="Profile" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;"> Profile </a></li>
+						<li><a href="view/profile/profile.php"><img src="assets/img/profile.jpg" alt="Profile" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;"> Profile </a></li>
 						<li><a href="controller/authcontroller.php?page=logout"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
 						</ul>
 
