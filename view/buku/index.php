@@ -25,8 +25,6 @@ if(isset($_GET['sukses'])){
 	echo "</div>";
 }
 ?>
-
-
 <div class="col-md-8">
 		<form method="POST" action="index.php?page=buku">
 			<div class="input-group">
