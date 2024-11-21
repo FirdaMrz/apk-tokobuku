@@ -18,76 +18,139 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <style>
+        /* Styling Background Utama */
+        #login-page {
+            background-image: url('assets/img/login.jpg'); /* Ganti dengan lokasi gambar Anda */
+            background-size: cover; /* Menutupi seluruh halaman */
+            background-position: center; /* Memusatkan gambar */
+            background-repeat: no-repeat; /* Tidak mengulang gambar */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed; /* Agar tetap di tengah ketika scroll */
+            width: 100%;
+        }
+
+        /* Tambahkan Overlay Warna */
+        #login-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Warna overlay hitam transparan */
+            z-index: 1; /* Letakkan di bawah form login */
+        }
+
+        .container {
+            position: relative;
+            z-index: 2; /* Form login di atas overlay */
+            width: 100%; /* Pastikan form login tidak lebih besar dari layar */
+            max-width: 400px; /* Batasi lebar form login */
+        }
+
+        /* Styling Logo */
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* Styling Container */
+        .logo-container {
+            background: rgba(255, 255, 255, 0.9); /* Warna putih transparan */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Styling Form Login */
+        .form-login {
+            background: rgba(255, 255, 255, 0.9); /* Warna putih transparan */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-login-heading {
+            background: #009688;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .login-wrap {
+            margin-top: 20px;
+        }
+
+        /* Styling Button */
+        .btn-theme {
+            background: #009688;
+            color: #ffffff;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-theme:hover {
+            background: #00796b;
+            color: #ffffff;
+        }
+
+        /* Mencegah Halaman di-scroll */
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Mencegah scroll */
+        }
+    </style>
   </head>
 
   <body>
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-
-      <div id="login-page">
+    <div id="login-page">
         <div class="container">
-        
-              <form class="form-login" method="POST" action="controller/authcontroller.php?page=login">
-                <h2 class="form-login-heading">Selamat Datang Di Toko Buku</h2>
+            <!-- Form Login -->
+            <form class="form-login" method="POST" action="controller/authcontroller.php?page=login">
+                <div class="logo-container">
+                    <img src="assets/img/logo.jpg" alt="Logo" class="logo-circle">
+                    <h2 class="form-login-heading">Selamat Datang Di Toko Buku</h2>
+                </div>
                 <div class="login-wrap">
                     <?php
                         if(isset($_GET['status'])){
-                            echo '<div class="alert alert-danger" align="center">';
-                                    if($_GET['status'] == 'tidakaktif'){
-                                        echo "Akun Anda Tidak Aktif, Silahkan Hubungi Admin";
-                                    }
-                                    if($_GET['status'] == 'gagal'){
-                                        echo "Username Atau Password Salah !";
-                                    }
+                            echo '<div class="alert alert-danger text-center">';
+                            if($_GET['status'] == 'tidakaktif'){
+                                echo "Akun Anda Tidak Aktif, Silahkan Hubungi Admin";
+                            }
+                            if($_GET['status'] == 'gagal'){
+                                echo "Username Atau Password Salah!";
+                            }
                             echo '</div>';
                         }
                     ?>
-                    
-
-                    <input name="username" type="text" class="form-control" placeholder="User ID" required autofocus>
+                    <input name="username" type="text" class="form-control" placeholder="Username" required autofocus>
                     <br>
                     <input name="password" type="password" class="form-control" placeholder="Password" required>
-                    <label class="checkbox">
-                        
-                    </label>
-                    <button id="login-button" class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
-                    <hr>
-                    
-                    
-        
+                    <br>
+                    <button id="login-button" class="btn btn-theme btn-block" type="submit">
+                        <i class="fa fa-lock"></i> LOGIN
+                    </button>
                 </div>
-    
-        
-              </form>      
-        
+            </form>
         </div>
-      </div>
+    </div>
 
-    <!-- js placed at the end of the document so the pages load faster -->
+    <!-- JS -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-
-    <!--BACKSTRETCH-->
-    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
-    <script>
-        $.backstretch("assets/img/login-bg.jpg", {speed: 500});
-    </script>
-
-    <!-- Script untuk event listener login button -->
-    <script>
-        document.getElementById('login-button').addEventListener('click', function() {
-            // Logika untuk proses login
-            alert('Selamat datang kembali!');
-        });
-    </script>
-
   </body>
 </html>
